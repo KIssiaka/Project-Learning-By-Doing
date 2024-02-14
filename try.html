@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemple de graphique</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Styles pour le conteneur du graphique */
+    #graphCanvas {
+      width: 400px;
+      height: 300px;
+      margin: 20px;
+      border: 1px solid #ccc;
+    }
+
+    /* Styles pour les étiquettes des axes */
+    .chart-label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="graphCanvas"></canvas>
+
+<script>
+let filename = 'Outputs_controlled.csv';
+
+// all of your code should be inside this command
+d3.csv(filename).then(function updateGraphData(loadedData) {
+  // let's see if our data loaded correctly
+  // (and take a peek at how it's formatted)
+  console.log(loadedData);
+  
+  // empty lists for our data and the labels
+  let data = [];
+  let labels = [];
+  
+  // use a for-loop to load the data from the
+  // file into our lists
+  for (let i = 0; i < loadedData.length; i++) {
+    console.log(loadedData[i]);
+    
+    // get the year and mean temp for each listing
+    // note: the 'keys' here correspond to the headers
+    // in our file and need to be typed exactly
+    let steps = loadedData[i].Steps;
+    let WaitingTime = loadedData[i].WaitingTime;
+    console.log(WaitingTime);
+    
+    // add the year to our labels
+    labels.push(steps);
+    
+    // and mean temp to the data
+    data.push(WaitingTime);    
+  }
+  
+  // basic line chart settings
+  let options = {
+    type: 'line',
+    data: {
+      labels: labels,  // the labels we loaded!
+      datasets: [{
+        data: data,    // the data we loaded!
+        fill: false,
+        pointRadius: 0,
+        pointHoverRadius: 0,
+        borderColor: 'rgb(100,100,100)'
+      }]
+    }
+  };
+    
+  // with all that done, we can create our chart!
+  let chart = new Chart(document.getElementById('graphCanvas'), options);
+});
+
+</script>
+</body>
+</html>

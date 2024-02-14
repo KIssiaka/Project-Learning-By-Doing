@@ -1,0 +1,1420 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("Background].jpg"); /* Replace "background-image.jpg" with your own image path */
+      background-size: cover;
+      background-color: rgba(195, 194, 194, 0.9);
+    }
+
+    #countdown {
+      font-size: 2rem;
+      text-align: center; 
+      margin: 200px;
+      bottom: 100px;
+      margin-top: 130px;
+      margin-left: 800px;
+  }
+    #countdown-timer span {
+        display: inline-block; /* Necessary to set a width */
+        padding: 1rem;
+        width: 200px;
+        height: 50px;
+        margin: 0.5rem;
+        border: 5px #272626;
+        color:#a63521;
+        font-size: 120px;
+        font-style: italic;
+        top: 50px;
+  }
+  #seconds {
+   position: relative;
+   margin-bottom:100px;
+}
+#seconds2 {
+  position: relative;
+  margin-bottom:600px;
+}
+#seconds3 {
+  position: relative;
+  bottom:90px;
+}
+#seconds4 {
+  position: relative;
+  bottom:40px;
+}
+ 
+
+
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 100px;
+    }
+
+    .photo {
+      position: relative;
+      margin: 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 7px; /* Adjust the value to make the borders more or less round */
+      overflow: hidden; /* Clip the content within the rounded borders */
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      background-color: #a6211c;
+      padding: 30px;
+      border-radius: 0;
+    }
+
+    .dropdown select {
+      border: none;
+      color: #ffffff;
+      font-size: 40px;
+      background-color: #a6211c;
+    }
+
+    .photo img {
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      object-fit: cover;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .video-container .bordered-video,
+    .video-container .bordered-video2 {
+      border: 4px solid #a6211c;
+      box-sizing: content-box;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      position:absolute
+    }
+
+    .middle-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .middle-image img {
+      height: 250px;
+      max-width: 150%;
+    }
+    /* CSS for the pop-up */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(156, 153, 153, 0.9); /* Semi-transparent background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+    .popup-image {
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+      margin: 0 auto;
+    }
+
+    .bordered-canvas {
+      border: 2px solid #a6211c;
+      box-sizing: border-box;
+      height: 50%;
+      width: 100%;
+      padding: 1px;
+    }
+
+    .container_UD {
+      border: 2px solid #a6211c;
+      box-sizing: border-box;
+      height: 33%;
+      width: 48.5%;
+      padding: 10px;
+      position: absolute; /* Ajout de cette ligne */
+      bottom: 0; /* Ajout de cette ligne */
+      left: 10px;
+
+    }
+    .UDS {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 15%;
+      width: 100%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+      transform: perspective(100px) rotateX(5deg);
+    }
+    .dropdown2 {
+      position: absolute;
+      top: 200px;
+      left: 1300px;
+      z-index: 1;
+      background-color: #a6211c;
+      padding: 30px;
+      border-radius: 0;
+      margin-bottom: 500px;
+    }
+    .dropdown2 select {
+      border: none;
+      color: #ffffff;
+      font-size: 40px;
+      background-color: #a6211c;
+    }
+
+    .button {
+      border: none;
+      color: #ffffff;
+      font-size: 40px;
+      background-color: #a6211c;
+      padding: 10px 20px;
+      margin: 0px;
+      bottom:0px;
+      top: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 14%;
+      width: 25%;
+      right:20px;
+      margin-left: 350px;
+      cursor: pointer;
+    }
+    .buttonR2 {
+      border: none;
+      color: #ffffff;
+      font-size: 40px;
+      background-color: #a6211c;
+      padding: 10px 20px;
+      margin: 0px;
+      top:0px;
+      bottom:0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 14%;
+      width: 25%;
+      right:20px;
+      margin-left: 350px;
+      cursor: pointer;
+    }
+    .buttonR3 {
+      border: none;
+      color: #ffffff;
+      font-size: 40px;
+      background-color: #a6211c;
+      padding: 10px 20px;
+      margin: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 14%;
+      width: 25%;
+      right:20px;
+      margin-left: 350px;
+      cursor: pointer;
+    }
+    .buttonR4 {
+      border: none;
+      color: #ffffff;
+      font-size: 40px;
+      background-color: #a6211c;
+      padding: 10px 20px;
+      margin: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 14%;
+      width: 25%;
+      right:20px;
+      margin-left: 350px;
+      cursor: pointer;
+    }
+  
+    .button-label {
+      border: 10px solid #0e0807;
+      color: #f60404;
+      font-size: 40px;
+      padding: 0px 20px;
+      margin: 0px;
+      height: 10%;
+      width: 5%;
+      right:100px;
+      margin-right: 0px;
+      margin-left: 0px;
+      cursor: pointer;
+    }
+    #redDurationLabel {
+      margin-left: 20px;
+      font-size:100px;
+      margin-top: 200px;
+    }
+    #redDurationLabel2 {
+      margin-left: 20px;
+      font-size:100px;
+      margin-top: 200px;
+    }
+    #greenDurationLabel {
+      font-size:100px;
+      justify-content: center;
+      margin-left:20px;
+    }
+
+    .unable {
+      height: 105%;
+      width: 100%;
+      margin-top: 800px;
+      margin-left: 1300px;
+      justify-content: center;
+    }
+
+
+    .container_TL {
+      border: 2px solid #a6211c;
+      box-sizing: border-box;
+      height: 33%;
+      width: 51%;
+      padding: 10px;
+      position: absolute; /* Ajout de cette ligne */
+      bottom: 0; /* Ajout de cette ligne */
+      right: 10px;
+
+    }
+
+    .TL {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 15%;
+      width: 100%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+    }
+
+    .TL_Status {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 10%;
+      width: 15%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 700px;
+    }
+    .R1 {
+      border: none;
+      color: #060505;
+      font-size: 100px;
+      background-color:blanchedalmond;
+      height: 20%;
+      width: 15%;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 450px;
+    }
+    .R2 {
+      border: none;
+      color: #060505;
+      font-size: 100px;
+      background-color:blanchedalmond;
+      height: 15%;
+      width: 15%;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 330px;
+    }
+    .R3 {
+      border: none;
+      color: #060505;
+      font-size: 100px;
+      background-color:blanchedalmond;
+      height: 15%;
+      width: 15%;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 180px;
+    }
+    .R4 {
+      border: none;
+      color: #060505;
+      font-size: 100px;
+      background-color:blanchedalmond;
+      height: 15%;
+      width: 15%;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 50px;
+    }
+    
+    .TL_Status_content {
+      border: 2px solid #a6211c;
+      color: #ffffff;
+      font-size: 50px;
+      height: 70%;
+      width: 15%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 15px;
+    }
+
+    .State {
+      border: 2px solid #a6211c;
+      color: #ffffff;
+      background-color: #a6211c;
+      font-size: 50px;
+      height: 5%;
+      width: 7.5%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 450px;
+      margin-bottom: 40px;
+      margin-left: 360px;
+    }
+
+
+    .TL_RT {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 10%;
+      width: 30%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 700px;
+      Right: 1660px;
+    }
+
+    .TL_RT {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 10%;
+      width: 30%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 700px;
+      Right: 1660px;
+    }
+
+    #messageContainer {
+      border: 10px solid black;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 7%;
+      width: 13.7%;
+      text-align: center;
+      justify-content: center;
+      display: none; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: fixed;
+      bottom: 440px;
+      Right: 820px;
+    }
+    #messageContainer .message {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+    }
+
+    #messageContainer3 {
+      border: 10px solid black;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 7%;
+      width: 13.7%;
+      text-align: center;
+      justify-content: center;
+      display: none; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: fixed;
+      bottom: 20px;
+      Right: 820px;
+    }
+    #messageContainer3 .message {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 65px;
+    }
+
+    #messageContainer2 {
+      border: 10px solid black;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 8%;
+      width: 13.7%;
+      text-align: center;
+      justify-content: center;
+      display: none; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: fixed;
+      bottom: 210px;
+      Right: 820px;
+    }
+    #messageContainer2 .message {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+    }
+
+    #LContainer {
+      border: 10px solid black;
+      color: #181313;
+      font-size: 50px;
+      background-color: white;
+      height: 7%;
+      width: 13%;
+      text-align: center;
+      justify-content: center;
+      display: none; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: fixed;
+      bottom: 440px;
+      Right: 5px;
+    }
+    #LContainer .message {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+    }
+
+    #LContainer3 {
+      border: 10px solid black;
+      color: #181313;
+      font-size: 50px;
+      background-color: white;
+      height: 7%;
+      width: 13%;
+      text-align: center;
+      justify-content: center;
+      display: none; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: fixed;
+      bottom: 20px;
+      Right: 5px;
+    }
+    #LContainer3 .message {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 65px;
+    }
+
+    #LContainer2 {
+      border: 10px solid black;
+      color: #181313;
+      font-size: 50px;
+      background-color: white;
+      height: 8%;
+      width: 13%;
+      text-align: center;
+      justify-content: center;
+      display: none; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: fixed;
+      bottom: 210px;
+      Right: 5px;
+    }
+    #LContainer2 .message {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+    }
+   
+    .M2 {
+      border: 10px solid black;
+      color: #ffffff;
+      font-size: 55px;
+      background-color: #a6211c;
+      height: 25%;
+      width: 26%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 190px;
+      Right: 820px;
+    }
+   
+
+    .M3 {
+      border: 10px solid black;
+      color: #ffffff;
+      font-size: 55px;
+      background-color: #a6211c;
+      height: 20%;
+      width: 26%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 20px;
+      Right: 820px;
+    }
+   
+
+    .TL_RT_content {
+      border: 2px solid #a6211c;
+      color: #ffffff;
+      font-size: 50px;
+      height: 70%;
+      width: 30%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 15px;
+      Right: 1660px;
+    }
+    #countdownLabel {
+      font-size: 100px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .Current_Red_Duration {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 10%;
+      width: 27%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 700px;
+      Right: 820px;
+    }
+    .Current_Red_Duration_content {
+      border: 2px solid #a6211c;
+      color: #ffffff;
+      font-size: 50px;
+      height: 70%;
+      width: 27%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 15px;
+      Right: 820px;
+    }
+
+    .Current_Green_Duration {
+      border: none;
+      color: #ffffff;
+      font-size: 50px;
+      background-color: #a6211c;
+      height: 10%;
+      width: 26%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 700px;
+      Right: 0px;
+    }
+    .Current_Green_Duration_content {
+      border: 2px solid #a6211c;
+      color: #ffffff;
+      font-size: 50px;
+      height: 70%;
+      width: 26%;
+      justify-content: center;
+      display: flex; /* Ajoutez cette ligne */
+      align-items: center; /* Ajoutez cette ligne */
+      position: absolute;
+      bottom: 15px;
+      Right: 0px;
+    }
+ 
+
+    .close-button {
+      position: absolute;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f50404;
+      color: #fff;
+      padding: 17px 45px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      background-color: #c40000;
+      border: none;
+      color: #ffffff;
+      font-size: 26px;
+      background-color: #a6211c;
+    }
+
+    #graphCanvas {
+      display: none;
+      max-width: 100%;
+      color:rgb(5, 5, 6);
+      height: 1550px;
+    }
+    #graphCanvas2 {
+      display: none;
+      max-width: 100%;
+      color:rgb(5, 5, 6);
+      height: 1550px;
+    }
+    #graphCanvas3 {
+      display: none;
+      max-width: 100%;
+      color:rgb(5, 5, 6);
+      height: 1550px;
+    }
+    #graphCanvas4 {
+      display: none;
+      max-width: 100%;
+      color:rgb(5, 5, 6);
+      height: 1550px;
+    }
+
+
+
+
+    #traffic-signal {
+      width:100px;
+      height: 95px;
+      border: 8px solid black;
+      padding: 10px 3px;
+      border-radius: 80px;
+      margin-top: 0px;
+      margin-bottom: 390px;
+  }
+  #traffic-signal2{
+    width:100px;
+    height: 95px;
+    border: 8px solid black;
+    padding: 10px 3px;
+    border-radius: 80px;
+    position: absolute;
+    right: 790px;
+    margin-right: 2000px;
+    margin-top: 350px;
+    margin-bottom: 390px;
+}
+#traffic-signal3{
+  width:100px;
+  height: 95px;
+  position: absolute;
+  right: 2790px;
+  border: 8px solid black;
+  padding: 10px 3px;
+  border-radius: 80px;
+  margin-top: 500px;
+  margin-bottom: 390px;
+}
+#traffic-signal4{
+  position: absolute;
+  right: 2790px;
+  width:100px;
+  height: 95px;
+  border: 8px solid black;
+  padding: 10px 3px;
+  border-radius: 80px;
+  margin-left:20px;
+  margin-top: 650px;
+  margin-bottom: 690px;
+}
+
+
+  </style>
+  
+</head>
+<body>
+  <p id="demo"></p>
+  <div class="container">
+    <div class="middle-image">
+      <img src="LOgo.png" alt="Middle Image">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="photo">
+      <div class="dropdown">
+        <select onchange="toggleWaitingTimeImage(this)">
+          <option value="option1">Road 1</option>
+          <option value="option2">Road 2</option>
+          <option value="option3">Road 3</option>
+          <option value="option3">Road 4</option>
+        </select>
+      </div>
+      <div class="video-container">
+        <video autoplay loop class="bordered-video2" Id="myVideo2" src="assets/final.mp4" alt="Video 2" onclick="openPopup('Blabla.png')" controls></video>
+        <video autoplay loop class="bordered-video" Id="myVideo" src="new_Yolooutput.mp4" alt="Video 1" onclick="openPopup('Blabla.png')" controls>
+      </div>
+    </div>
+    <div class="photo">
+      <div class="dropdown">
+        <select onchange="changegraph(this)">
+          <option value="option1">Number of vehicles</option>
+          <option value="option2">Waiting time</option>
+          <option value="option3">Ambulance waiting time</option>
+          <option value="option4">Average number of vehicles</option>
+        </select>
+      </div>
+    
+    
+      <canvas id="graphCanvas"></canvas>
+      <canvas id="graphCanvas2" style="display: none;"></canvas>
+      <canvas id="graphCanvas3" style="display: none;"></canvas>
+      <canvas id="graphCanvas4" style="display: none;"></canvas>
+
+    </div>
+      
+  </div>
+
+    <div class="container_TL">
+      <div class="TL">Traffic Lights Real time Stats</div>
+      <div class="TL_Status">Status</div>
+      <div class="R1">R1</div>
+      <div class="R2">R2</div>
+      <div class="R3">R3</div>
+      <div class="R4">R4</div>
+
+      <div class="TL_RT">Time Remaining before Status Change</div>
+
+      <!--<div class="M1">Ambulance passing</div>
+      <div class="M2">Police Vehicle passing</div>
+      <div class="M3">Emergency: Accident</div>-->
+
+      <div class="Current_Red_Duration">Alert Messages</div>
+
+      
+      <div class="Current_Green_Duration">Locations</div>
+
+
+      <div id="messageContainer"></div>
+      <div id="messageContainer2"></div>
+      <div id="messageContainer3"></div>
+
+      <div id="LContainer"></div>
+      <div id="LContainer2"></div>
+      <div id="LContainer3"></div>
+  
+      <div class="TL_Status_content">
+          <div id="traffic-signal"></div>
+      </div>
+        
+          <div id="traffic-signal2"></div>
+        
+          <div id="traffic-signal3"></div>
+
+          <div id="traffic-signal4"></div>
+      
+      
+        
+      <div class="TL_RT_content">
+        
+      </div>
+      <table id="countdown">
+        <tr id="countdown-timer">
+          <td><span id="seconds">x</span></td></tr>
+        <tr id="countdown-timer">
+          <td><span id="seconds2">x</span></td></tr>
+        <tr id="countdown-timer">
+          <td><span id="seconds3">x</span></td></tr>
+        <tr id="countdown-timer">
+          <td><span id="seconds4">x</span></td>
+      </tr>
+      </table>
+    
+    
+      <div class="Current_Red_Duration_content"></div>
+      <div class="Current_Green_Duration_content"></div>
+    </div>
+
+    
+  </div>
+ 
+
+
+
+    <div class="container_UD">
+      <div class="UDS">USER DECISION SPACE</div>
+      <div class="dropdown2">
+        <select id="dataSelect">
+          <option value="option1">Intersection 1</option>
+          <option value="option2">Intersection 2</option>
+          <option value="option3">Intersection 3</option>
+          <option value="option4">Intersection 4</option>
+      </select>
+      </div>
+      <button class="button" id="button1" >Set Red Light Road1 Duration</button>
+      <input type="number" id="redDurationLabel" name="reddurationlabel1" value="15" class="button-label"/>
+      <button class="button" id="button1" >Set Green Light Road1 Duration</button>
+      <input type="'number" id="greenDurationLabel" name="greendurationlabel1" value="10" class="button-label"/>
+
+      <button class="buttonR2" id="button2">Set Red Light Road2 Duration</button>
+      <input type="'number" id="redDurationLabel2" name="reddurationlabel2" value="15" class="button-label"/>
+      <button class="buttonR2" id="button2">Set Green Light Road2 Duration</button>
+      <input type="'number" id="greenDurationLabel" name="greendurationlabel2" value="10" class="button-label"/>
+
+      <button class="buttonR3" id="button1">Set Red Light Road3 Duration</button>
+      <input type="'number" id="redDurationLabel" name="reddurationlabel3" value="15" class="button-label"/>
+      <button class="buttonR3" id="button2">Set Green Light Road3 Duration</button>
+      <input type="'number" id="greenDurationLabel" name="greendurationlabel3" value="10" class="button-label"/>
+
+      <button class="buttonR4" id="button1">Set Green Light Road4 Duration</button>
+      <input type="'number" id="redDurationLabel" name="reddurationlabel4" value="15" class="button-label"/>
+      <button class="buttonR4" id="button2">Set Green Light Road4 Duration</button>
+      <input type="'number" id="greenDurationLabel" name="greendurationlabel4" value="10" class="button-label"/>
+    
+         
+  </div>
+
+  <div class="popup" id="popup" onclick="closePopup()">
+    <div class="popup-content">
+      <img class="popup-image" src="Hilal.jpg" alt="Popup Image">
+      <button class="close-button">For Lives</button>
+    </div>
+  </div>
+
+
+    
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+
+    var graphData = [ 0.0, 0.08333333333333333, 0.1666666666666667, 0.25, 0.3333333333333333, 0.5, 0.5, 0.75, 0.75, 0.8333333333333334, 0.9166666666666666, 0.9166666666666666, 1.083333333333333, 1.166666666666667, 1.25, 1.5, 1.583333333333333, 1.75, 1.833333333333333, 2.0, 2.0, 2.083333333333333, 2.166666666666667, 2.333333333333333, 2.333333333333333, 2.583333333333333, 2.583333333333333, 2.833333333333333, 2.833333333333333, 2.916666666666667, 3.0, 3.166666666666667, 3.083333333333333, 2.916666666666667, 2.916666666666667, 2.833333333333333, 2.75, 2.916666666666667, 2.75, 2.666666666666667, 2.666666666666667, 2.666666666666667, 2.916666666666667, 2.833333333333333, 2.916666666666667, 2.833333333333333, 2.666666666666667, 2.666666666666667, 2.666666666666667, 2.75, 2.916666666666667, 3.083333333333333, 3.25, 3.333333333333333, 3.583333333333333, 3.666666666666667, 3.833333333333333, 4.0, 4.0, 4.25, 4.416666666666667, 4.416666666666667, 4.666666666666667, 4.666666666666667, 4.916666666666667, 4.583333333333333, 4.75, 4.833333333333333, 4.916666666666667, 5.333333333333333, 5.25, 5.416666666666667, 5.5, 5.583333333333333, 5.666666666666667, 5.833333333333333, 5.833333333333333, 5.916666666666667, 5.916666666666667, 6.25, 6.083333333333333, 5.833333333333333, 6.083333333333333, 6.166666666666667, 5.666666666666667, 6.083333333333333, 5.75, 5.833333333333333, 5.583333333333333, 5.666666666666667, 5.416666666666667, 5.5, 5.5, 5.416666666666667, 5.5, 5.416666666666667, 5.583333333333333, 5.083333333333333, 5.166666666666667, 5.416666666666667, 5.0, 5.083333333333333, 4.666666666666667, 4.75, 4.333333333333333, 4.416666666666667, 4.333333333333333, 4.5, 4.416666666666667, 4.5, 4.5, 4.666666666666667, 4.666666666666667, 4.583333333333333, 4.75, 4.666666666666667, 4.666666666666667, 4.666666666666667, 4.5, 4.583333333333333, 4.5, 4.5, 4.5, 4.583333333333333, 4.75, 5.0, 5.0, 5.0, 5.083333333333333, 4.666666666666667, 4.666666666666667, 4.75, 4.25, 4.333333333333333, 4.166666666666667, 4.0, 3.916666666666667, 3.75, 3.5, 3.416666666666667, 3.5, 3.5, 3.5, 3.666666666666667, 3.666666666666667, 3.416666666666667, 3.583333333333333, 3.666666666666667, 3.75, 3.916666666666667, 4.0, 4.333333333333333, 4.333333333333333, 4.583333333333333, 4.666666666666667, 4.75, 4.916666666666667, 5.166666666666667, 5.25, 5.333333333333333, 5.583333333333333, 5.833333333333333, 6.083333333333333, 6.083333333333333, 6.333333333333333, 6.666666666666667, 6.833333333333333, 7.0, 7.083333333333333, 7.333333333333333, 7.333333333333333, 7.333333333333333, 7.416666666666667, 7.5, 7.583333333333333, 7.583333333333333, 7.833333333333333, 7.583333333333333, 7.583333333333333, 7.75, 7.333333333333333, 7.416666666666667, 7.083333333333333, 7.333333333333333, 7.25, 7.25, 7.0, 7.0, 6.916666666666667, 7.0, 6.833333333333333, 6.833333333333333, 6.916666666666667, 6.5, 6.5, 6.333333333333333, 6.416666666666667, 6.166666666666667, 6.166666666666667, 6.083333333333333, 5.833333333333333, 5.833333333333333, 5.833333333333333, 5.75, 5.666666666666667, 5.833333333333333, 5.916666666666667, 5.916666666666667, 6.166666666666667, 5.916666666666667, 6.0, 6.0, 5.833333333333333, 6.0, 5.833333333333333, 5.833333333333333, 5.666666666666667, 5.75, 5.666666666666667, 5.666666666666667, 5.75, 5.583333333333333, 5.583333333333333, 5.5, 5.416666666666667, 5.166666666666667, 5.166666666666667, 5.333333333333333, 5.25, 5.333333333333333, 5.25, 5.416666666666667, 5.5, 5.666666666666667, 5.833333333333333, 5.833333333333333, 6.0, 6.166666666666667, 6.25, 6.583333333333333, 6.666666666666667, 6.666666666666667, 6.75, 6.916666666666667, 6.833333333333333, 6.833333333333333, 6.916666666666667, 7.083333333333333, 7.083333333333333, 7.0, 6.833333333333333, 6.916666666666667, 6.833333333333333, 6.833333333333333, 6.75, 6.833333333333333, 6.583333333333333, 6.416666666666667, 6.333333333333333, 6.25, 6.25, 6.333333333333333, 6.333333333333333, 6.25, 6.083333333333333, 6.166666666666667, 6.0, 6.083333333333333, 6.0, 6.0, 6.166666666666667, 6.083333333333333, 6.166666666666667, 6.25,6.416666666666667, 6.583333333333333, 6.666666666666667, 6.833333333333333, 7.083333333333333, 7.166666666666667, 7.166666666666667, 7.25, 7.25, 7.416666666666667, 7.5, 7.666666666666667, 7.833333333333333, 7.916666666666667, 8.083333333333334, 7.75, 8.0, 8.166666666666666, 8.416666666666666, 8.583333333333334, 8.583333333333334, 8.666666666666666, 8.666666666666666, 9.0, 9.166666666666666, 9.333333333333334, 9.416666666666666, 9.583333333333334, 9.833333333333334, 9.666666666666666, 9.916666666666666, 9.666666666666666, 9.583333333333334, 9.5, 9.166666666666666, 9.083333333333334, 8.916666666666666, 8.5, 8.166666666666666, 7.75, 7.666666666666667, 7.333333333333333, 7.166666666666667, 7.0, 6.666666666666667, 6.5, 6.25, 5.833333333333333, 5.666666666666667, 5.666666666666667, 5.166666666666667, 5.166666666666667, 4.75, 4.833333333333333, 4.666666666666667, 4.583333333333333, 4.416666666666667, 4.333333333333333, 4.166666666666667, 4.166666666666667, 4.25, 4.25, 4.166666666666667, 3.75, 3.666666666666667, 3.583333333333333, 3.083333333333333, 3.083333333333333, 3.0, 2.916666666666667, 2.916666666666667, 2.833333333333333, 2.833333333333333, 2.75, 2.75, 2.666666666666667, 2.666666666666667, 2.583333333333333, 2.5, 2.333333333333333, 2.333333333333333, 2.333333333333333, 2.166666666666667, 2.333333333333333, 2.333333333333333, 2.333333333333333, 2.333333333333333, 2.416666666666667, 2.333333333333333, 2.416666666666667, 2.416666666666667, 2.416666666666667, 2.416666666666667, 2.416666666666667, 2.416666666666667, 2.333333333333333, 2.333333333333333, 2.25, 2.25, 2.333333333333333, 2.25, 2.25, 2.166666666666667, 2.166666666666667, 2.083333333333333, 2.0, 1.916666666666667, 1.916666666666667, 1.833333333333333, 1.833333333333333, 1.666666666666667, 1.583333333333333, 1.666666666666667, 1.666666666666667, 1.666666666666667, 1.666666666666667, 1.583333333333333, 1.583333333333333, 1.583333333333333, 1.583333333333333, 1.583333333333333, 1.583333333333333, 1.666666666666667, 1.666666666666667, 1.75, 1.75, 1.833333333333333, 1.666666666666667, 1.75, 1.75, 1.916666666666667, 1.916666666666667, 2.083333333333333, 2.166666666666667, 2.166666666666667, 2.166666666666667, 2.25, 2.333333333333333, 2.416666666666667, 2.5, 2.5, 2.583333333333333, 2.583333333333333, 2.583333333333333, 2.583333333333333, 2.666666666666667, 2.583333333333333, 2.666666666666667, 2.666666666666667, 2.666666666666667, 2.666666666666667, 2.666666666666667, 2.75, 2.75, 2.833333333333333, 2.833333333333333, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.75, 2.75, 2.75, 2.5, 2.5, 2.166666666666667, 2.166666666666667, 2.166666666666667, 2.083333333333333, 2.0, 1.916666666666667, 2.0, 1.916666666666667, 1.916666666666667, 1.833333333333333, 1.916666666666667, 1.916666666666667, 2.083333333333333, 2.166666666666667, 2.25, 2.333333333333333, 2.416666666666667, 2.5, 2.5, 2.583333333333333, 2.583333333333333, 2.666666666666667, 2.666666666666667, 2.75, 2.666666666666667, 2.75, 2.833333333333333, 2.75, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.916666666666667, 2.833333333333333, 2.833333333333333, 2.75, 2.75, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.833333333333333, 2.75, 2.75, 2.75, 2.75, 2.666666666666667, 2.666666666666667, 2.666666666666667, 2.583333333333333, 2.583333333333333, 2.5];
+    var graphData2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.08333333333333333, 0.25, 0.4166666666666667, 0.6666666666666666, 1.0, 1.416666666666667, 1.833333333333333, 2.25, 1.583333333333333, 1.833333333333333, 2.083333333333333, 2.333333333333333, 2.583333333333333, 2.916666666666667, 3.25, 3.666666666666667, 4.083333333333333, 4.5, 5.083333333333333, 5.666666666666667, 6.25, 6.833333333333333, 7.416666666666667, 8.0, 8.666666666666666, 9.416666666666666, 10.33333333333333, 11.25, 12.16666666666667, 13.16666666666667, 14.16666666666667, 15.16666666666667, 16.25, 17.25, 18.41666666666667, 19.58333333333333, 20.58333333333333, 21.91666666666667, 23.25, 24.83333333333333, 19.25, 19.16666666666667, 19.25, 20.83333333333333, 22.58333333333333, 24.41666666666667, 26.33333333333333, 28.33333333333333, 30.33333333333333, 32.33333333333334, 34.41666666666666, 36.66666666666666, 39.0, 41.41666666666666, 43.91666666666666, 46.5, 33.75, 26.08333333333333, 20.58333333333333, 17.25, 14.33333333333333, 11.58333333333333, 10.91666666666667, 10.5, 10.5, 12.08333333333333, 12.58333333333333, 12.83333333333333, 13.5, 15.16666666666667, 16.91666666666667, 18.91666666666667, 11.5, 7.833333333333333, 4.916666666666667, 3.666666666666667, 4.083333333333333, 4.75, 5.583333333333333, 6.5, 7.666666666666667, 9.083333333333334, 10.58333333333333, 12.08333333333333, 13.83333333333333, 15.66666666666667, 17.58333333333333, 19.5, 13.91666666666667, 11.16666666666667, 11.16666666666667, 11.41666666666667, 12.58333333333333, 13.91666666666667, 15.33333333333333, 16.83333333333333, 18.41666666666667, 20.16666666666667, 22.08333333333333, 24.0, 26.0, 28.16666666666667, 30.25, 32.75, 23.5, 12.75, 9.666666666666666, 7.75, 7.083333333333333, 7.416666666666667, 7.916666666666667, 8.666666666666666, 9.416666666666666, 10.16666666666667, 10.91666666666667, 11.75, 12.75, 13.75, 14.83333333333333, 15.91666666666667, 16.91666666666667, 18.16666666666667, 19.58333333333333, 21.0, 22.5, 24.16666666666667, 25.83333333333333, 27.5, 29.25, 31.08333333333333, 32.75, 34.66666666666666, 36.75, 38.91666666666666, 41.08333333333334, 43.25, 45.58333333333334, 47.91666666666666, 50.33333333333334, 52.91666666666666, 55.66666666666666, 58.5, 61.41666666666666, 64.5, 67.83333333333333, 71.33333333333333, 74.91666666666667, 78.66666666666667, 82.5, 86.33333333333333, 90.25, 93.0, 80.66666666666667, 71.75, 64.0, 60.58333333333334, 58.75, 60.16666666666666, 61.5, 63.08333333333334, 63.83333333333334, 66.41666666666667, 69.08333333333333, 71.83333333333333, 74.66666666666667, 77.75, 80.91666666666667, 84.33333333333333, 68.16666666666667, 60.33333333333334, 53.58333333333334, 48.08333333333334, 42.75, 37.66666666666666, 36.08333333333334, 35.33333333333334, 34.58333333333334, 34.25, 36.16666666666666, 35.91666666666666, 35.83333333333334, 36.5, 37.25, 39.5, 27.08333333333333, 16.33333333333333, 12.25, 11.08333333333333, 10.33333333333333, 10.5, 11.08333333333333, 12.25, 13.91666666666667, 15.25, 16.91666666666667, 18.58333333333333, 20.41666666666667, 22.33333333333333, 24.33333333333333, 26.41666666666667, 20.41666666666667, 20.25, 20.16666666666667, 21.58333333333333, 23.25, 24.91666666666667, 26.66666666666667, 28.66666666666667, 30.83333333333333, 33.16666666666666, 35.33333333333334, 37.66666666666666, 40.16666666666666, 42.83333333333334, 45.58333333333334, 48.5, 45.66666666666666, 43.16666666666666, 40.58333333333334, 39.0, 40.33333333333334, 42.0, 44.08333333333334, 46.5, 48.91666666666666, 51.66666666666666, 54.41666666666666, 57.33333333333334, 60.33333333333334, 63.41666666666666, 66.58333333333333, 69.58333333333333, 53.16666666666666, 41.33333333333334, 30.33333333333333, 24.33333333333333, 20.0, 17.25, 14.33333333333333, 14.66666666666667, 15.16666666666667, 16.41666666666667, 17.91666666666667, 20.0, 21.75, 23.91666666666667, 26.25, 28.91666666666667, 23.0, 20.75, 22.41666666666667, 24.83333333333333, 26.66666666666667, 29.25, 31.83333333333333, 34.58333333333334, 37.5, 41.0,44.58333333333334, 48.25, 52.0, 55.83333333333334, 59.83333333333334, 63.25, 60.83333333333334, 60.91666666666666, 62.33333333333334, 64.16666666666667, 65.83333333333333, 67.83333333333333, 70.0, 72.5, 75.5, 80.33333333333333, 85.33333333333333, 90.58333333333333, 96.0, 101.5833333333333, 107.3333333333333, 112.75, 99.83333333333333, 88.41666666666667, 79.16666666666667, 62.08333333333334, 50.41666666666666, 43.41666666666666, 41.08333333333334, 36.75, 33.75, 29.75, 29.33333333333333, 30.08333333333333, 31.5, 32.83333333333334, 34.16666666666666, 35.91666666666666, 29.33333333333333, 24.58333333333333, 20.5, 20.0, 19.5, 21.25, 23.08333333333333, 23.83333333333333, 26.0, 28.25, 30.66666666666667, 31.33333333333333, 33.83333333333334, 36.5, 39.25, 42.33333333333334, 29.58333333333333, 20.58333333333333, 18.75, 17.0, 17.25, 18.5, 18.83333333333333, 19.16666666666667, 20.0, 20.33333333333333, 21.33333333333333, 22.41666666666667, 24.0, 25.91666666666667, 27.83333333333333, 29.75, 27.16666666666667, 25.0, 25.08333333333333, 25.5, 26.33333333333333, 28.0, 28.5, 29.08333333333333, 30.66666666666667, 32.25, 33.91666666666666, 35.66666666666666, 37.41666666666666, 39.16666666666666, 40.91666666666666, 42.75, 43.5, 44.33333333333334, 45.41666666666666, 46.5, 48.08333333333334, 49.66666666666666, 48.66666666666666, 47.58333333333334, 46.5, 45.41666666666666, 44.25, 41.83333333333334, 40.5, 39.25, 38.83333333333334, 39.66666666666666, 34.66666666666666, 29.75, 24.83333333333333, 20.08333333333333, 20.66666666666667, 21.25, 21.91666666666667, 22.58333333333333, 23.41666666666667, 24.25, 25.08333333333333, 26.0, 27.0, 28.08333333333333, 29.25, 30.5, 22.41666666666667, 23.66666666666667, 25.0, 26.33333333333333, 16.58333333333333, 17.83333333333333, 19.08333333333333, 20.41666666666667, 15.83333333333333, 17.25, 18.41666666666667, 19.91666666666667, 21.41666666666667, 23.0, 24.58333333333333, 26.25, 25.5, 25.16666666666667, 25.08333333333333, 25.33333333333333, 27.08333333333333, 28.91666666666667, 30.75, 32.58333333333334, 34.41666666666666, 36.5, 38.66666666666666, 40.91666666666666, 43.25, 45.58333333333334, 47.91666666666666, 50.33333333333334, 48.33333333333334, 46.66666666666666, 45.41666666666666, 42.08333333333334, 39.0, 38.91666666666666, 38.91666666666666, 40.41666666666666, 41.91666666666666, 43.5, 45.08333333333334, 46.75, 48.41666666666666, 50.08333333333334, 51.75, 53.41666666666666, 55.16666666666666, 56.91666666666666, 58.66666666666666, 60.41666666666666, 62.16666666666666, 64.0, 65.83333333333333, 67.66666666666667, 69.5, 71.41666666666667, 73.33333333333333, 75.25, 77.33333333333333, 79.41666666666667, 81.5, 83.75, 86.0, 88.33333333333333, 90.75, 93.16666666666667, 95.66666666666667, 98.16666666666667, 100.6666666666667, 103.1666666666667, 105.8333333333333, 108.5, 111.1666666666667, 113.8333333333333, 116.5833333333333, 119.3333333333333, 122.0833333333333, 124.8333333333333, 127.5833333333333, 130.3333333333333, 133.0833333333333, 135.8333333333333, 138.5833333333333, 133.0833333333333, 127.75, 122.4166666666667, 117.1666666666667, 111.9166666666667, 106.3333333333333, 108.6666666666667, 103.3333333333333, 97.66666666666667, 95.75, 97.66666666666667, 96.08333333333333, 94.75, 93.41666666666667, 95.16666666666667];
+    var graphData3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var graphData4 = [1, 2, 3, 4, 8, 8, 9, 11];
+    
+    var selectedOption = "option1"; // Option par défaut
+    
+    var chart1, chart2, chart3, chart4; // Variables pour les instances des graphes
+    
+    function renderGraph(data1, data2, data3, data4, option) {
+      var labels = data1.map(function(_, index) {
+        return index + 1;
+      });
+    
+      var ctx1 = document.getElementById('graphCanvas').getContext('2d');
+      var ctx2 = document.getElementById('graphCanvas2').getContext('2d');
+      var ctx3 = document.getElementById('graphCanvas3').getContext('2d');
+      var ctx4 = document.getElementById('graphCanvas4').getContext('2d');
+    
+      // Définition des données du premier graphe
+      var chartData1 = {
+        labels: labels,
+        datasets: [{
+          label: 'Number of Vehicles',
+          data: data1,
+          backgroundColor: 'rgba(166, 33, 28, 0.5)',
+          borderColor: 'rgba(166, 33, 28, 1)',
+          borderWidth: 8,
+        }]
+      };
+    
+      // Définition des données du deuxième graphe
+      var chartData2 = {
+        labels: labels,
+        datasets: [{
+          label: 'Waiting Time',
+          data: data2,
+          backgroundColor: 'rgba(166, 33, 28, 0.5)',
+          borderColor: 'rgba(16, 3, 8, 1)',
+          borderWidth: 8,
+        }]
+      };
+    
+      var chartData3 = {
+        labels: labels,
+        datasets: [{
+          label: 'Average Waiting time',
+          data: data3,
+          backgroundColor: 'rgba(166, 33, 28, 0.5)',
+          borderColor: 'rgba(1, 3, 8, 1)',
+          borderWidth: 8,
+        }]
+      };
+    
+      var chartData4 = {
+        labels: labels,
+        datasets: [{
+          label: 'Ambulance Waiting time',
+          data: data4,
+          backgroundColor: 'rgba(166, 33, 28, 0.5)',
+          borderColor: 'rgba(16, 3, 80, 1)',
+          borderWidth: 8,
+        }]
+      };
+    
+      // Options communes aux graphes
+      var options = {
+        legend: {
+          cursor: "pointer",
+          verticalAlign: "top",
+          fontSize: 42,
+          fontColor: "dimGrey",
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              font: {
+                size: 34
+              }
+            }
+          },
+          x: {
+            ticks: {
+              font: {
+                size: 34
+              }
+            }
+          }
+        }
+      };
+    
+      // Si les instances des graphes existent, les détruire
+      if (chart1) {
+        chart1.destroy();
+      }
+      if (chart2) {
+        chart2.destroy();
+      }
+      if (chart3) {
+        chart3.destroy();
+      }
+      if (chart4) {
+        chart4.destroy();
+      }
+    
+      // Création du premier graphe avec les données et les options spécifiées
+      chart1 = new Chart(ctx1, {
+        type: 'line',
+        data: chartData1,
+        options: options
+      });
+    
+      // Création du deuxième graphe avec les données et les options spécifiées
+      chart2 = new Chart(ctx2, {
+        type: 'line',
+        data: chartData2,
+        options: options
+      });
+    
+      // Création du troisième graphe avec les données et les options spécifiées
+      chart3 = new Chart(ctx3, {
+        type: 'line',
+        data: chartData3,
+        options: options
+      });
+    
+      // Création du quatrième graphe avec les données et les options spécifiées
+      chart4 = new Chart(ctx4, {
+        type: 'line',
+        data: chartData4,
+        options: options
+      });
+    
+      // Afficher le graphe en fonction de l'option sélectionnée
+      if (option === "option1") {
+        ctx1.canvas.style.display = "block";
+        ctx2.canvas.style.display = "none";
+        ctx3.canvas.style.display = "none";
+        ctx4.canvas.style.display = "none";
+      } else if (option === "option2") {
+        ctx1.canvas.style.display = "none";
+        ctx2.canvas.style.display = "block";
+        ctx3.canvas.style.display = "none";
+        ctx4.canvas.style.display = "none";
+      } else if (option === "option3") {
+        ctx1.canvas.style.display = "none";
+        ctx2.canvas.style.display = "none";
+        ctx3.canvas.style.display = "block";
+        ctx4.canvas.style.display = "none";
+      } else if (option === "option4") {
+        ctx1.canvas.style.display = "none";
+        ctx2.canvas.style.display = "none";
+        ctx3.canvas.style.display = "none";
+        ctx4.canvas.style.display = "block";
+      }
+    }
+    
+    function changegraph(selectElement) {
+      selectedOption = selectElement.value;
+      renderGraph(graphData, graphData2, graphData3, graphData4, selectedOption);
+    }
+    
+
+    function initializeGraph(GRAPHDATA1, GRAPHDATA2, GRAPHDATA3, GRAPHDATA4, RENDERGRAPH) {
+      var initialData = GRAPHDATA1.slice(0, 50);
+      var initialData2 = GRAPHDATA2.slice(0, 50);
+      var initialData3 = GRAPHDATA3.slice(0, 50);
+      var initialData4 = GRAPHDATA4.slice(0, 50);
+      RENDERGRAPH(GRAPHDATA1, GRAPHDATA2, GRAPHDATA3, GRAPHDATA4, selectedOption);
+
+    
+      var dataIndex = 0;
+      setInterval(function() {
+        if (dataIndex >= GRAPHDATA1.length) {
+          dataIndex = 0;
+        }
+        var currentData = GRAPHDATA1.slice(0, dataIndex + 1);
+        var currentData2 = GRAPHDATA2.slice(0, dataIndex + 1);
+        var currentData3 = GRAPHDATA3.slice(0, dataIndex + 1);
+        var currentData4 = GRAPHDATA4.slice(0, dataIndex + 1);
+        RENDERGRAPH(currentData, currentData2, currentData3, currentData4, selectedOption);
+        dataIndex++;
+      }, 1000);
+      
+    }
+    
+    function updateGraphData(GRAPHDATA1, GRAPHDATA2, GRAPHDATA3, GRAPHDATA4, currentData, currentData2, currentData3, currentData4) {
+      GRAPHDATA1.push(currentData);
+      GRAPHDATA2.push(currentData2);
+      GRAPHDATA3.push(currentData3);
+      GRAPHDATA4.push(currentData4);
+    
+      if (chart1 && chart2 && chart3 && chart4) {
+        var chart;
+    
+        if (selectedOption === "option1") {
+          chart = chart1;
+        } else if (selectedOption === "option2") {
+          chart = chart2;
+        } else if (selectedOption === "option3") {
+          chart = chart3;
+        } else if (selectedOption === "option4") {
+          chart = chart4;
+        }
+    
+        chart.data.labels.push(chart.data.labels.length + 1);
+        chart.data.datasets[0].data.push(currentData);
+    
+        if (chart.data.datasets.length > 1) {
+          chart.data.datasets[1].data.push(currentData2);
+        }
+    
+        if (chart.data.datasets.length > 2) {
+          chart.data.datasets[2].data.push(currentData3);
+        }
+    
+        if (chart.data.datasets.length > 3) {
+          chart.data.datasets[3].data.push(currentData4);
+        }
+    
+        if (chart.data.labels.length > 50) {
+          chart.data.labels.shift();
+          chart.data.datasets[0].data.shift();
+    
+          if (chart.data.datasets.length > 1) {
+            chart.data.datasets[1].data.shift();
+          }
+    
+          if (chart.data.datasets.length > 2) {
+            chart.data.datasets[2].data.shift();
+          }
+    
+          if (chart.data.datasets.length > 3) {
+            chart.data.datasets[3].data.shift();
+          }
+        }
+    
+        chart.update();
+      }
+    }
+    
+    initializeGraph(graphData, graphData2, graphData3, graphData4, renderGraph);
+    
+
+
+
+    function toggleWaitingTimeImage(selectElement) {
+
+      var videoElement = document.getElementById('myVideo');
+      var videoElement2 = document.getElementById('myVideo2');
+
+      var isVisible = selectElement.value === 'option1';
+      var isVisible2 = selectElement.value === 'option2';
+
+      
+      if (isVisible) {
+
+        videoElement.style.display = 'block';
+        videoElement2.style.display = 'none';
+
+      } else if (isVisible2) {
+        videoElement2.style.display = 'block';
+        videoElement.style.display = 'none';
+       
+      } else {
+        videoElement.pause();
+        videoElement2.pause(); // Mettre en pause la vid�o
+      }
+
+    }
+
+
+    
+
+
+    function openPopup(imageSrc) {
+      var popupImage = document.querySelector('.popup-image');
+      popupImage.src = imageSrc;
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+
+    function startTrafficSignal () {
+      var R1=document.getElementById("traffic-signal");
+      var R2=document.getElementById("traffic-signal2");
+      var R3=document.getElementById("traffic-signal3");
+      var R4=document.getElementById("traffic-signal4");
+      R1.style.backgroundColor="red";
+      R2.style.backgroundColor="green";
+      R3.style.backgroundColor="red";
+      R4.style.backgroundColor="green";
+      setTimeout(function () {
+          R1.style.backgroundColor= "red";
+          R2.style.backgroundColor= "green";
+          R3.style.backgroundColor= "red";
+          R4.style.backgroundColor= "green";
+      },5000);
+   
+      setTimeout(function () {
+          R1.style.backgroundColor= "green";
+          R2.style.backgroundColor= "red";
+          R3.style.backgroundColor= "green";
+          R4.style.backgroundColor= "red";
+      },7000);
+   
+      setTimeout(function () {
+        R1.style.backgroundColor= "yellow";
+        R2.style.backgroundColor= "green";
+        R3.style.backgroundColor= "red";
+        R4.style.backgroundColor= "green";
+      },12000);
+  }
+   
+    
+
+
+    function setCountdown(R1, R2, R3, R4) {
+  var countDownDate = new Date().getTime() + 50 * 60 * 1000;
+
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    var seconds = Math.floor((distance % (1000 * document.getElementById("redDurationLabel").value)) / 1000);
+    var seconds2 = Math.floor((distance % (1000 * document.getElementById("redDurationLabel2").value)) / 1000);
+    var seconds3 = Math.floor((distance % (1000 * document.getElementById("greenDurationLabel").value)) / 1000);
+    var seconds4 = Math.floor((distance % (1000 * document.getElementById("redDurationLabel").value)) / 1000);
+
+    document.getElementById("seconds").textContent = seconds;
+    document.getElementById("seconds2").textContent = seconds2;
+    document.getElementById("seconds3").textContent = seconds3;
+    document.getElementById("seconds4").textContent = seconds4;
+
+    R1.style.backgroundColor = "red";
+    R2.style.backgroundColor = "green";
+    R3.style.backgroundColor = "red";
+    R4.style.backgroundColor = "green";
+
+    var redDuration = document.getElementById("redDurationLabel").value;
+    var greenDuration = document.getElementById("greenDurationLabel").value;
+    var yellowDuration = document.getElementById("yellowDurationLabel").value;
+
+    setTimeout(function() {
+      R1.style.backgroundColor = "green";
+      R2.style.backgroundColor = "red";
+      R3.style.backgroundColor = "green";
+      R4.style.backgroundColor = "red";
+    }, redDuration * 1000);
+
+    setTimeout(function() {
+      R1.style.backgroundColor = "yellow";
+      R2.style.backgroundColor = "green";
+      R3.style.backgroundColor = "red";
+      R4.style.backgroundColor = "green";
+    }, (redDuration + greenDuration) * 1000);
+
+    if (distance < 0) {
+      stateDisplay.style.backgroundColor = "green";
+      clearInterval(x);
+      document.getElementById("seconds").textContent = "EXPIRED";
+      document.getElementById("seconds2").textContent = "EXPIRED";
+      document.getElementById("seconds3").textContent = "EXPIRED";
+      document.getElementById("seconds4").textContent = "EXPIRED";
+    }
+  }, 1000);
+}
+
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var messageContainer = document.getElementById('messageContainer');
+        messageContainer.style.display = 'block';
+    
+        var messageContent = document.createElement('p');
+        messageContent.textContent = 'Ambulance passing';
+        messageContent.classList.add('message');
+    
+        messageContainer.appendChild(messageContent);
+      }, 5000); // Afficher le message après 5 secondes (5000 millisecondes)
+    });
+
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var messageContainer = document.getElementById('messageContainer2');
+        messageContainer.style.display = 'block';
+    
+        var messageContent = document.createElement('p');
+        messageContent.textContent = 'Ambulance passing';
+        messageContent.classList.add('message');
+    
+        messageContainer.appendChild(messageContent);
+      }, 7000); // Afficher le message après 5 secondes (5000 millisecondes)
+    });
+    
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var messageContainer = document.getElementById('messageContainer3');
+        messageContainer.style.display = 'block';
+    
+        var messageContent = document.createElement('p');
+        messageContent.textContent = 'EMERGENCY: Accident';
+        messageContent.classList.add('message');
+    
+        messageContainer.appendChild(messageContent);
+      }, 9000); // Afficher le message après 5 secondes (5000 millisecondes)
+    });
+    
+
+    // For locations appearences
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var messageContainer = document.getElementById('LContainer');
+        messageContainer.style.display = 'block';
+    
+        var messageContent = document.createElement('p');
+        messageContent.textContent = 'R1-I3';
+        messageContent.classList.add('message');
+    
+        messageContainer.appendChild(messageContent);
+      }, 6000); // Afficher le message après 5 secondes (5000 millisecondes)
+    });
+
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var messageContainer = document.getElementById('LContainer2');
+        messageContainer.style.display = 'block';
+    
+        var messageContent = document.createElement('p');
+        messageContent.textContent = 'R2-I1';
+        messageContent.classList.add('message');
+    
+        messageContainer.appendChild(messageContent);
+      }, 8000); // Afficher le message après 5 secondes (5000 millisecondes)
+    });
+    
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var messageContainer = document.getElementById('LContainer3');
+        messageContainer.style.display = 'block';
+    
+        var messageContent = document.createElement('p');
+        messageContent.textContent = 'R1-I2';
+        messageContent.classList.add('message');
+    
+        messageContainer.appendChild(messageContent);
+      }, 13000); // Afficher le message après 5 secondes (5000 millisecondes)
+    });
+    
+
+
+    
+  </script>
+
+  <script>
+    // Appel initial de la fonction pour démarrer le compte à rebours
+    setCountdown();
+    var timer=setInterval(function () {
+      startTrafficSignal();
+  },12000);
+    startTrafficSignal();
+
+        // Sets the coundown upon page load:
+    // Sets the countdown after every second:
+  </script>
+  
+</body>
+</html>
