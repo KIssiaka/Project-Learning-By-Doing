@@ -1,2 +1,1 @@
-# Project-Learning-By-Doing
-Rescue Flow: AI Enhanced Emergency traffic control
+Guided an energetic team through my inaugural project year. Led a dynamic team in my first-year project. Crafted a real-time traffic evolution website using HTML, CSS, and JavaScript. Implemented image detection with Yolo and traffic simulation with Sumo. Applied reinforcement learning to optimize traffic flow. Project showcased team consolidation, project management, and a tech stack blend for an impactful solution
